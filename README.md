@@ -2,10 +2,6 @@
 
 This assignment will help you get started with brushing and linking. Please look through all these materials so you understand how to run and organize your code.
 
-## The Associated GitHub Pages Website
-
-This web page is served automatically from the default `gh-pages` branch at https://northeastern-ds-4200-f19-staff.github.io/Assignment--Brushing-and-Linking-in-D3/
-
 ## Setup
 
 **Under no circumstances should you be editing files via the GitHub user interface.** Do all your edits locally after cloning the repository.
@@ -93,7 +89,7 @@ The final interaction should look like this (without the concentric red rings on
 
 ## Submission Instructions
 
-1. Submit a URL to your GitHub Page (same as the link you edited at the top) to [the associated assignment on Canvas](https://canvas.instructure.com/courses/1711075/assignments/12962345/).
+1. Submit a URL to your repository to [the associated assignment on Canvas](https://canvas.instructure.com/courses/1781714/assignments/13207130).
 
 ## Tips and Tricks
 
@@ -104,7 +100,7 @@ It is actually a general-purpose DOM data binding and manipulation library.
 You can thus use it to manipulate arbitrary HTML tags too, e.g., the tags for tables: `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`.
 
 You can [search for at examples online](https://www.google.com/search?&q=d3+html+table), e.g., Jonah Williams' [Interactive HTML Table I](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d).
-Note that this is using D3 version 3 while you are using D3 version 5, so some changes may be necessary.
+Note that this is using D3 version 3 while you are using D3 version 4, so some changes may be necessary.
 
 ### Function/method chaining
 
@@ -137,7 +133,7 @@ E.g., instead of writing `function(d){ return d.name; }` we write `d => d.name` 
 
 ### How to implement interaction on the table
 
-[`d3.brush`](https://github.com/d3/d3-brush) would be hard to use directly atop an HTML `table`. Instead, think about how you can re-create similar functionality by listening for DOM events. D3's `d3-selection` module can listen for any of the [standard DOM events](https://github.com/d3/d3-selection#handling-events) using the `selection.on(typenames[, listener[, options]])` function.
+[`d3.brush`](https://github.com/d3/d3-brush) would be hard to use directly atop an HTML `table`, so we need to use a little custom functionality. Instead, think about how you can re-create similar functionality by listening for DOM events. D3's `d3-selection` module can listen for any of the [standard DOM events](https://github.com/d3/d3-selection#handling-events) using the `selection.on(typenames[, listener[, options]])` function.
 
 E.g., to provide row highlighting on mouseover a la Jonah Williams' [Interactive HTML Table I](http://bl.ocks.org/jonahwilliams/cc2de2eedc3896a3a96d) you can listen for [Mouse Events](https://developer.mozilla.org/en-US/docs/Web/Events#Mouse_events) like so:
 ```js

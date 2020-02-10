@@ -1,5 +1,5 @@
 // Immediately Invoked Function Expression to limit access to our 
-// variables and prevent 
+// variables and prevent race conditions
 ((() => {
 
   // Load the data from a json file (you can make these using
