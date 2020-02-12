@@ -4,7 +4,7 @@
 
   // Load the data from a json file (you can make these using
   // JSON.stringify(YOUR_OBJECT), just remove the surrounding "")
-  d3.json("data/texas.json").then(data => {
+  d3.json("data/texas.json", (data) => {
 
     // General event type for selections, used by d3-dispatch
     // https://github.com/d3/d3-dispatch
@@ -34,13 +34,30 @@
       .selectionDispatcher(d3.dispatch(dispatchString))
       ("#scatterplot", data);
 
+    // Create a table given the following: 
+    // a dispatcher (d3-dispatch) for selection events; 
+    // a div id selector to put our table in; and the data to use.
+    let tableData = table()
+      .selectionDispatcher(d3.dispatch(dispatchString))
+      ("#table", data);
+
+
     // When the line chart selection is updated via brushing, 
     // tell the scatterplot to update it's selection (linking)
-    lcYearPoverty.selectionDispatcher().on(dispatchString, spUnemployMurder.updateSelection);
+    lcYearPoverty.selectionDispatcher().on(dispatchString, function(selectedData) {
+      spUnemployMurder.updateSelection(selectedData);
+      // ADD CODE TO HAVE TABLE UPDATE ITS SELECTION AS WELL
+    });
 
     // When the scatterplot selection is updated via brushing, 
     // tell the line chart to update it's selection (linking)
-    spUnemployMurder.selectionDispatcher().on(dispatchString, lcYearPoverty.updateSelection);
+    spUnemployMurder.selectionDispatcher().on(dispatchString, function(selectedData) {
+      lcYearPoverty.updateSelection(selectedData);
+      // ADD CODE TO HAVE TABLE UPDATE ITS SELECTION AS WELL
+    });
+
+    // When the table is updated via brushing, tell the line chart and scatterplot
+    // YOUR CODE HERE
   });
 
 })());

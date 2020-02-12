@@ -204,9 +204,9 @@ function scatterplot() {
     if (!arguments.length) return;
 
     // Select an element if its datum was selected
-    selectableElements.classed("selected", d =>
-      selectedData.includes(d)
-    );
+    selectableElements.classed("selected", d => {
+      return selectedData.includes(d)
+    });
 
   };
 

@@ -55,7 +55,7 @@ function linechart() {
         .call(d3.axisBottom(xScale));
         
     // Put X axis tick labels at an angle
-    xAxis.selectAll("text")	
+    xAxis.selectAll("text") 
         .style("text-anchor", "end")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
@@ -218,9 +218,9 @@ function linechart() {
     if (!arguments.length) return;
 
     // Select an element if its datum was selected
-    selectableElements.classed("selected", d =>
-      selectedData.includes(d)
-    );
+    selectableElements.classed("selected", d => {
+      return selectedData.includes(d)
+    });
   };
 
   return chart;

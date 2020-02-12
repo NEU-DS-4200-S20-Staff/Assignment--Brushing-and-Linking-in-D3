@@ -41,11 +41,13 @@ Each folder has an explanatory `README.md` file.
 
 * `js` will contain all JavaScript files you write. E.g.,
 
-  * `visualization.js` is the main code that builds all your visualizations.
+  * `visualization.js` is the main code that builds all your visualizations.  You will have to update this file to facilitate interaction between your table and the other two visualizations already implemented.
 
   * `scatterplot.js` is the code for creating a scatterplot using a [Reusable Chart model](https://bost.ocks.org/mike/chart/).
 
   * `linechart.js` is the code for creating a line chart using a [Reusable Chart model](https://bost.ocks.org/mike/chart/).
+
+  * `table.js` is skeleton code for creating a table using a [Reusable Chart model](https://bost.ocks.org/mike/chart/).  Currently, it just creates a `<table></table>` tag.  You will add code to this file to make the table headers, table rows, and table cells corresponding to the data in `texas.json`.
 
 * `lib` will contain any JavaScript library you use. It currently includes D3.
 
@@ -59,9 +61,7 @@ Make your edits and commit major versions to your git repository.
 
 1. In `index.html` update the GitHub repo URL with the URL of your repository. It is in the span with `id="forkongithub"`.
 
-1. Create a new JavaScript file `js/table.js`.
-
-1. Following the [Reusable Chart model](https://bost.ocks.org/mike/chart/) set out in `scatterplot.js` and `linechart.js`, write the code in `js/table.js` necessary for creating a table of all the data in `data/texas.json`. E.g., a header with the four columns for `year`, `poverty`, `unemployment`, and `murder` followed by `22` rows of data like so:
+1. Following the [Reusable Chart model](https://bost.ocks.org/mike/chart/) set out in `scatterplot.js` and `linechart.js`, implement the code in `js/table.js` necessary for creating a table of all the data in `data/texas.json`. E.g., a header with the four columns for `year`, `poverty`, `unemployment`, and `murder` followed by `22` rows of data like so:
 
     | year | poverty | unemployment | murder |
     |-----:|--------:|-------------:|-------:|
@@ -69,18 +69,11 @@ Make your edits and commit major versions to your git repository.
     | 1997 | 16.7    | 6.8          | 5.3    |
     | ...  | ...     | ...          | ...    |
 
-1. Add the necessary `<div>` code to `index.html` to place your table directly below the existing visualizations.
-
 1. Add any necessary CSS to `style.css` for displaying your table.
-
-1. Add code to `js/visualization.js` to create your table in the appropriate `<div>`. It should be of a set height. E.g., it should not resize as you select elements. You may need a scroll bar.
 
 1. Add brushing and highlighting functionality to your table to match both function and style of the scatterplot and line chart.
 
 1. Add code to `js/visualization.js` to create the three-way brushing and linking between the table, line chart, and scatterplot. E.g., selections in any of the three should highlight the associated data marks in **all three** visualizations.
-
-1. Ensure your code passes the [W3 validator](https://validator.w3.org/).
-
 
 
 The final interaction should look like this (without the concentric red rings on click):
@@ -186,27 +179,3 @@ You will receive full marks if:
     * Three-way brushing and linking works between the table, line chart, and scatterplot.
     * Styles are consistent across views.
     * None of the visualizations change size or move on the screen as you interact with them.
-
-## Template Repository Setup (For Instructors Only)
-
-### GitHub Pages
-
-It is necessary if using GitHub Classroom to set up GitHub pages for the students, as they do not have admin permissions on their repository. To do this, we need to create and move everything to the `gh-pages` branch and delete the `master` branch.
-
-1. Commit the files to the `master` branch on GitHub.
-
-1. `git branch gh-pages`
-
-1. `git checkout gh-pages`
-
-1. `git branch -D master`
-
-1. `git push origin gh-pages`
-
-1. On GitHub, go to `Settings`->`Branches` and set the default branch to `gh-pages`.
-
-1. `git push origin :master`
-
-### Template Repository
-
-1. On GitHub, go to `Settings` and check the box for `Template repository` at the top. This makes GitHub Classroom copies much faster.
